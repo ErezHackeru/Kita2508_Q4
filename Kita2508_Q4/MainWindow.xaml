@@ -1,0 +1,26 @@
+﻿<Window x:Class="Kita2508_Q4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kita2508_Q4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="24">
+    <Window.Resources>
+        <local:ValueConverterAverage x:Key="valueConverterAverage"></local:ValueConverterAverage>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical">
+        <local:SliderUserControl VerticalAlignment="Center" Title="Volume" 
+                                 MaxLength="100" MinLength="20" SliderVal="40"                                 
+                                 Height="120" x:Name="VolumeUserControl"/>
+        <local:SliderUserControl VerticalAlignment="Center" Title="Bass" 
+                                 MaxLength="100" MinLength="30" SliderVal="50"
+                                 Height="120" x:Name="BassUserControl"/>
+        <local:SliderUserControl VerticalAlignment="Center" Title="Amplify" 
+                                 MaxLength="100" MinLength="40" SliderVal="60"
+                                 Height="120" x:Name="AmplifyUserControl"/>
+
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Text="{Binding ElementName=AmplifyUserControl, Path=SliderVal, Mode=TwoWay}"/>
+    </StackPanel>
+</Window>
